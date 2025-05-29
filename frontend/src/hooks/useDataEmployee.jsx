@@ -9,8 +9,8 @@ const useDataEmployee = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:4000/api/registerEmployees");
-      setEmpleados(res.data);
+      const res = await axios.get("http://localhost:4000/api/employee");
+      setEmpleados(res.data); 
     } catch (err) {
       console.error("Error al obtener empleados:", err);
     }
@@ -28,7 +28,7 @@ const useDataEmployee = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:4000/api/registerEmployees/${id}`);
+        await axios.delete(`http://localhost:4000/api/employee/${id}`);
         Swal.fire('¡Eliminado!', 'El empleado ha sido eliminado.', 'success');
         fetchEmployees();
       } catch (err) {
